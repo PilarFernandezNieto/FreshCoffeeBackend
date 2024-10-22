@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoriaController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +15,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+    // Aquí se colocan todas las rutas que requieran autenticación
     return $request->user();
+
 });
+
+// apiResource asocia los nombres de las funciones de los controladores
+Route::apiResource('/categorias', CategoriaController::class);
