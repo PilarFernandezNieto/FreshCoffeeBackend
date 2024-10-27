@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\ProductoController;
 use Illuminate\Http\Request;
@@ -26,3 +27,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 // apiResource asocia los nombres de las funciones de los controladores
 Route::apiResource('/categorias', CategoriaController::class);
 Route::apiResource('/productos', ProductoController::class);
+
+// Autenticación
+Route::post('/registro', [AuthController::class, 'register']);
