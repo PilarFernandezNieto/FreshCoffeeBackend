@@ -18,10 +18,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    // Aquí se colocan todas las rutas que requieran autenticación
-    return $request->user();
-
+Route::middleware('auth:sanctum')->group(function () {
+    Route::get('/user', function (Request $request) {
+        // Aquí se colocan todas las rutas que requieran autenticación
+        return $request->user();
+    });
+    Route::post('/logout', [AuthController::class, 'logout']);
 });
 
 // apiResource asocia los nombres de las funciones de los controladores
