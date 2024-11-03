@@ -28,11 +28,11 @@ Route::middleware('auth:sanctum')->group(function () {
 
     // Pedidos
     Route::apiResource('/pedidos', PedidoController::class);
+    // apiResource asocia los nombres de las funciones de los controladores
+    Route::apiResource('/categorias', CategoriaController::class);
+    Route::apiResource('/productos', ProductoController::class);
 });
 
-// apiResource asocia los nombres de las funciones de los controladores
-Route::apiResource('/categorias', CategoriaController::class);
-Route::apiResource('/productos', ProductoController::class);
 
 // Autenticación
 Route::post('/registro', [AuthController::class, 'register']);
